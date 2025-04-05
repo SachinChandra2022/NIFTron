@@ -14,3 +14,5 @@ bt==0.2.9
 plotly>=5.18.0
 notebook>=7.0
 APScheduler>=3.10.4
+schedule>=1.2.0
+beautifulsoup4>=4.12.2
