@@ -1,0 +1,14 @@
+# Ignore env and system files
+.env
+venv/
+__pycache__/
+*.pyc
+*.pkl
+
+# Ignore IDE and OS files
+.vscode/
+.DS_Store
+
+# Ignore generated or heavy data
+data/
+logs/
