@@ -1,8 +1,12 @@
 import pandas as pd
 import os
-def add_moving_averages(df, windows=[10, 20, 50]):
+def add_moving_averages(df, windows=[10, 20]):
+    # Ensure 'close' is numeric
+    df['close'] = pd.to_numeric(df['close'], errors='coerce')
+
     for w in windows:
         df[f"SMA_{w}"] = df['close'].rolling(window=w).mean()
+
     return df
 
 def add_rsi(df, window=14):
