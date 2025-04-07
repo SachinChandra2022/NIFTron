@@ -36,3 +36,35 @@ def clean_stock_data(df):
     df.reset_index(drop=True, inplace=True)
 
     return df
+
+
+def add_technical_indicators(df):
+    
+    df.set_index('timestamp', inplace=True)
+    df['SMA_10'] = df['close'].rolling(window=10).mean()
+    df['SMA_20'] = df['close'].rolling(window=20).mean()
+
+    delta = df['close'].diff()
+    gain = delta.clip(lower=0)
+    loss = -delta.clip(upper=0)
+    avg_gain = gain.rolling(14).mean()
+    avg_loss = loss.rolling(14).mean()
+    rs = avg_gain / avg_loss
+    df['RSI'] = 100 - (100 / (1 + rs))
+
+    exp1 = df['close'].ewm(span=12, adjust=False).mean()
+    exp2 = df['close'].ewm(span=26, adjust=False).mean()
+    df['MACD'] = exp1 - exp2
+    df['Signal'] = df['MACD'].ewm(span=9, adjust=False).mean()
+
+    df['Daily_Return'] = df['close'].pct_change()
+    df['ROC'] = df['close'].pct_change(periods=10)
+
+    df['Volatility_10'] = df['close'].rolling(window=10).std()
+
+    sma_20 = df['close'].rolling(window=20).mean()
+    std_20 = df['close'].rolling(window=20).std()
+    df['BB_Upper'] = sma_20 + (2 * std_20)
+    df['BB_Lower'] = sma_20 - (2 * std_20)
+
+    return df

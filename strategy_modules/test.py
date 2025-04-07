@@ -7,7 +7,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 # Import strategy modules
 from strategy_modules.momentum_strategy import run_momentum_strategy
-from strategy_modules.value_investing import value_investing_strategy
+from strategy_modules.mean_reversion_strategy import mean_reversion_strategy
 from strategy_modules.equal_weight_strategy import get_equal_weight_portfolio
 from strategy_modules.ensemble_recommender import ensemble_recommendation
 
@@ -36,9 +36,9 @@ def test_all_strategies(stock_symbol=None):
     momentum = run_momentum_strategy(data_dir=DATA_PATH, top_n=10)
     print(momentum)
 
-    print("\n💰 Value Investing Strategy Results:")
-    value = value_investing_strategy(data_dir=DATA_PATH, top_n=10)
-    print(value)
+    print("\n📉 Mean Reversion Strategy Results:")
+    mean_reversion = mean_reversion_strategy(data_dir=DATA_PATH, top_n=10)
+    print(mean_reversion)
 
     print("\n⚖️ Equal Weight Portfolio:")
     weights = get_equal_weight_portfolio(data_dir=DATA_PATH)
