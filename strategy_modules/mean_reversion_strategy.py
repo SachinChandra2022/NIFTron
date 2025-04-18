@@ -41,12 +41,12 @@ def mean_reversion_strategy(data_dir="data/nifty50", top_n=10):
                     })
 
             except Exception as e:
-                print(f"⚠️ Skipping {symbol} due to error: {e}")
+                print(f"Skipping {symbol} due to error: {e}")
 
     df_result = pd.DataFrame(records)
 
     if df_result.empty:
-        print("🚫 No valid data for mean reversion strategy.")
+        print("No valid data for mean reversion strategy.")
         return pd.DataFrame(columns=["Symbol", "mean_reversion_score"])
 
     df_result["mean_reversion_rank"] = df_result["mean_reversion_score"].rank(ascending=True)

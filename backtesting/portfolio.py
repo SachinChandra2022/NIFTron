@@ -1,12 +1,10 @@
-# backtesting/portfolio.py
-
 class Portfolio:
     def __init__(self, initial_capital=100000):
         self.initial_capital = initial_capital
         self.cash = initial_capital
         self.positions = {}
         self.history = []
-
+    # Buying the stock
     def buy(self, symbol, price, quantity):
         cost = price * quantity
         if self.cash >= cost:
@@ -15,7 +13,7 @@ class Portfolio:
             self.history.append((symbol, 'BUY', price, quantity, self.cash))
         else:
             print(f"Insufficient cash to buy {symbol}")
-
+    # Selling the stock
     def sell(self, symbol, price, quantity):
         if symbol in self.positions and self.positions[symbol] >= quantity:
             self.positions[symbol] -= quantity

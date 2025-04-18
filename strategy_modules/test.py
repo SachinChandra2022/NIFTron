@@ -32,22 +32,23 @@ def test_all_strategies(stock_symbol=None):
         return
 
     # Run each full strategy across all NIFTY50 stocks
-    print("🚀 Momentum Strategy Results:")
+    print("Momentum Strategy Results:")
     momentum = run_momentum_strategy(data_dir=DATA_PATH, top_n=10)
     print(momentum)
 
-    print("\n📉 Mean Reversion Strategy Results:")
+    print("\nMean Reversion Strategy Results:")
     mean_reversion = mean_reversion_strategy(data_dir=DATA_PATH, top_n=10)
     print(mean_reversion)
 
-    print("\n⚖️ Equal Weight Portfolio:")
+    print("\nEqual Weight Portfolio:")
     weights = get_equal_weight_portfolio(data_dir=DATA_PATH)
     print(weights)
 
-    print("\n📊 Final Ensemble Recommendation:")
+    print("\n Final Ensemble Recommendation:")
     ensemble = ensemble_recommendation(data_dir=DATA_PATH, top_n=10)
     print(ensemble)
 
 if __name__ == "__main__":
     # Pass stock_symbol="RELIANCE.NS" to test a single stock CSV
+    # test_all_strategies(stock_symbol="RELIANCE.NS")  
     test_all_strategies()  # Run full strategy test on all stocks

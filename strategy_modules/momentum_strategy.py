@@ -47,7 +47,7 @@ def run_momentum_strategy(symbol=None, data_dir="data/nifty50", top_n=10):
                         "Volatility": features["volatility_20"].iloc[-1]
                     })
             except Exception as e:
-                print(f"⚠️ Skipping {symbol} due to error: {e}")
+                print(f"Skipping {symbol} due to error: {e}")
 
     result_df = pd.DataFrame(records).dropna()
 

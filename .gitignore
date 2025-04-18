@@ -12,3 +12,4 @@ __pycache__/
 # Ignore generated or heavy data
 data/
 logs/
+backtesting/

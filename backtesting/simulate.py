@@ -1,7 +1,6 @@
 import os
 import sys
 
-# 🔧 Add project root to Python path so imports work
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from backtesting.backtest_engine import BacktestEngine
