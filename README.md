@@ -1,6 +1,6 @@
 <!-- Project Banner -->
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:00c6ff,100:0072ff&height=200&section=header&text=NIFTY%2050%20Trading%20Bot%20📈&fontSize=40&fontColor=ffffff&animation=fadeIn" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:00c6ff,100:0072ff&height=200&section=header&text=NIFTron%20(NIFTY%2050%20Trading%20Bot%20)📈&fontSize=40&fontColor=ffffff&animation=fadeIn" />
 </p>
 
 <p align="center">
